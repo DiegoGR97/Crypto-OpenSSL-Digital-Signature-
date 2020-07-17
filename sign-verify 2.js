@@ -41,7 +41,7 @@ verifier.end();
 // ----         con el objeto verificador.             -----
 
 //const verified_pdf_file = verifier.verify(public_key, signature);
-const verified_pdf_file = verifier.verify(public_key, signature);
+const verified_pdf_file = verifier.verify(public_key, signature2);
 
 console.log(
   JSON.stringify(
@@ -62,9 +62,7 @@ diferentes, usando el documento A, la verificación da resultado negativo.
 3. Al verificar la firma de un documento B, que es la versión firmada de un documento A, usando el 
 documento A, la verificación da resultado negativo.
 4. Al verificar la firma de un documento B, que es la versión con una firma adicional del documento A,
-usando el documento A, la verificación da como resultado
-
-
+usando el documento A, la verificación da como resultado negativo.
 
 
 */
