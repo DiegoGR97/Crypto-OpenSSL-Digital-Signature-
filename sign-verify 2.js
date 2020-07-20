@@ -7,8 +7,14 @@ const public_key = fs.readFileSync("certs/public.pem", "utf-8");
 
 // ---------- Lectura de documento a firmarse. -------------------
 //const message = fs.readFileSync('message.txt', 'utf-8')
-const pdf_file = fs.readFileSync("SAMPLE PDF FIRMADO.PDF", "utf-8");
-const pdf_file2 = fs.readFileSync("SAMPLE PDF FIRMADO 2.PDF", "utf-8");
+const pdf_file = fs.readFileSync(
+  "./samplepdfs/SAMPLE PDF FIRMADO.PDF",
+  "utf-8"
+);
+const pdf_file2 = fs.readFileSync(
+  "./samplepdfs/SAMPLE PDF FIRMADO 2.PDF",
+  "utf-8"
+);
 
 // ---------- Creación de objeto de firma en SHA256 ---------------------
 // --------- Se especifica documento a cifrarse y algoritmo de cifrado --
@@ -40,13 +46,13 @@ verifier.end();
 // ---- Verificación de firma con la llave pública     -----
 // ----         con el objeto verificador.             -----
 
-//const verified_pdf_file = verifier.verify(public_key, signature);
-const verified_pdf_file = verifier.verify(public_key, signature2);
+const verified_pdf_file = verifier.verify(public_key, signature);
+//const verified_pdf_file = verifier.verify(public_key, signature2);
 
 console.log(
   JSON.stringify(
     {
-      message: pdf_file,
+      messageLength: pdf_file.length,
       signature: signature_hex,
       verified: verified_pdf_file,
     },

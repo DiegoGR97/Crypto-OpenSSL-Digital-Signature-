@@ -2,12 +2,18 @@ const crypto = require("crypto");
 const fs = require("fs");
 
 // ---------- Lectura de llaves pública y privada ----------------
-const private_key = fs.readFileSync("certs/private.pem", "utf-8");
-const public_key = fs.readFileSync("certs/public.pem", "utf-8");
+const private_key = fs.readFileSync(
+  "./Certificates/rootCertificate/privateKey.pem",
+  "utf-8"
+);
+const public_key = fs.readFileSync(
+  "./Certificates/rootCertificate/publicKey.pem",
+  "utf-8"
+);
 
 // ---------- Lectura de documento a firmarse. -------------------
 //const pdf = fs.readFileSync('pdf.txt', 'utf-8')
-const pdf = fs.readFileSync("SAMPLE PDF.PDF", "utf-8");
+const pdf = fs.readFileSync("./samplepdfs/SAMPLE PDF.PDF", "utf-8");
 const pdf_hex = pdf.toString("hex");
 //console.log("pdf_hex:", pdf_hex);
 
